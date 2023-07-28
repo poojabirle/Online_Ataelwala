@@ -1,0 +1,18 @@
+import mysql.connector;
+email=input("enter your email id");
+name=input("Enter your Name");
+password=input("enter password");
+address=input("enter your address");
+city=input("enter your city");
+state=input("enter your state");
+pincode=input("enter your pincode");
+vehicleNo=input("enter vehicle Number");
+vehicleName=input("enter vehicle name");
+con=mysql.connector.connect(host="localhost",user="root",password="root",database="test");
+operation=con.cursor();
+sql="insert into atalewalasignup values(%s,%s,%s,%s,%s,%s,%s,%s,%s)";
+values=(email,name,password,address,city,state,pincode,vehicleNo,vehicleName);
+operation.execute(sql,values);
+con.commit();
+con.close();
+print("Record Inserted");

@@ -1,0 +1,14 @@
+import mysql.connector;
+email=input("enter your email id");
+name=input("Enter your Name");
+address=input("enter your address");
+contact=int(input("enter your contact no"));
+subject=input("enter your message");
+con=mysql.connector.connect(host="localhost",user="root",password="root",database="test");
+operation=con.cursor();
+sql="insert into contactatalewala values(%s,%s,%s,%s,%s)";
+values=(email,name,address,contact,subject);
+operation.execute(sql,values);
+con.commit();
+con.close();
+print("Record Inserted");

@@ -1,0 +1,15 @@
+import mysql.connector;
+email=input("enter your email id");
+name=input("Enter your Name");
+address=input("enter your address");
+solvedby="";
+servicetype=input("enter servicetype");
+date="";
+con=mysql.connector.connect(host="localhost",user="root",password="root",database="test");
+operation=con.cursor();
+sql="insert into complain values(%s,%s,%s,%s)";
+values=(email,name,address,servicetype);
+operation.execute(sql,values);
+con.commit();
+con.close();
+print("Record Inserted");

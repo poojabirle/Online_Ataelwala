@@ -1,0 +1,10 @@
+import mysql.connector;
+email=input("enter your email id");
+con=mysql.connector.connect(host="localhost",user="root",password="root",database="test");
+operation=con.cursor();
+sql="update signin set name=%s where email=%s";
+values=(name,email);
+operation.execute(sql,values);
+con.commit();
+con.close();
+print("Record updated");

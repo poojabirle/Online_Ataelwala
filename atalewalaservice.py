@@ -1,0 +1,12 @@
+import mysql.connector;
+email=input("enter your email id");
+name=input("Enter your Name");
+servicename=input("enter your services");
+con=mysql.connector.connect(host="localhost",user="root",password="root",database="test");
+operation=con.cursor();
+sql="insert into atalewalaservice values(%s,%s,%s)";
+values=(email,name,servicename);
+operation.execute(sql,values);
+con.commit();
+con.close();
+print("Record Inserted");
